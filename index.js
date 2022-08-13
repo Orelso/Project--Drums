@@ -5,6 +5,12 @@ window.addEventListener('keydown', function(e) {
     audio.currentTime = 0; // will rewind each sound to the start so they can be played without delays
     audio.play();
     key.classList.add('playing');
+
+    
+    setTimeout(function() {
+    //   key.classList.add('playing');
+      key.classList.remove('playing');
+    })
 });
 
 function removeTransition(e) {
@@ -13,4 +19,4 @@ function removeTransition(e) {
 }
 
 const keys = document.querySelectorAll('.key');
-keys.forEach(key => key.addEventListener('transitioned', removeTransition));
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
